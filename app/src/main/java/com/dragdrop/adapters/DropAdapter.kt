@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dragdrop.R
 import com.dragdrop.databinding.ItemDropLayoutBinding
-import com.dragdrop.models.DragModel
 import com.dragdrop.models.DropModel
 
 class DropAdapter : RecyclerView.Adapter<DropAdapter.MyHolder>() {
@@ -37,6 +36,12 @@ class DropAdapter : RecyclerView.Adapter<DropAdapter.MyHolder>() {
         fun bind(data:DropModel){
             binding.model = data
         }
+    }
+
+    fun addItem(newList: List<DropModel>) {
+        list.clear()
+        list.addAll(newList)
+        notifyDataSetChanged()
     }
 
 

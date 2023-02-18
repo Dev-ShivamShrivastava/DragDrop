@@ -10,23 +10,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dragdrop.R
 import com.dragdrop.databinding.ItemDragLayoutBinding
+import com.dragdrop.interfaces.OnCallBackListener
 import com.dragdrop.models.DragModel
 import com.dragdrop.utils.DragListener
 
-class DragAdapter : RecyclerView.Adapter<DragAdapter.MyHolder>() {
-     var list = arrayListOf<DragModel>(
-        DragModel(name = "Elephant", image = R.drawable.elephant, typeName = R.raw.elephant),
-        DragModel(name = "Horse", R.drawable.horse, typeName = R.raw.horse),
-        DragModel(name = "Lion", R.drawable.lion, typeName = R.raw.lion),
-        DragModel(name = "Tiger", R.drawable.tiger, typeName = R.raw.tiger),
-        DragModel(name = "Monkey", R.drawable.monkey, typeName = R.raw.monkey),
-        DragModel(name = "Fox", R.drawable.fox,typeName = R.raw.fox),
-        DragModel(name = "Dog", R.drawable.dog,typeName = R.raw.dog),
-        DragModel(name = "Cat", R.drawable.cat,typeName = R.raw.cat),
-        DragModel(name = "Goat", R.drawable.goat,typeName = R.raw.goat),
-        DragModel(name = "Pig", R.drawable.pig,typeName = R.raw.pig),
-        DragModel(name = "Giraffe", R.drawable.giraffe,typeName = R.raw.giraffe),
-    )
+class DragAdapter(val onCallBackListener: OnCallBackListener) :
+    RecyclerView.Adapter<DragAdapter.MyHolder>() {
+    var list = arrayListOf<DragModel>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MyHolder(
@@ -47,6 +37,8 @@ class DragAdapter : RecyclerView.Adapter<DragAdapter.MyHolder>() {
             val myShadow = View.DragShadowBuilder(holder.binding.mcvDrag)
             holder.binding.mcvDrag.setOnDragListener(DragListener {
                 holder.binding.mcvDrag.setOnDragListener(null)
+                if (list.isEmpty())
+                    onCallBackListener.isListEmpty(true)
             })
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -62,10 +54,16 @@ class DragAdapter : RecyclerView.Adapter<DragAdapter.MyHolder>() {
 
     override fun getItemCount() = list.size
 
-    class MyHolder(val binding: ItemDragLayoutBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(data: DragModel){
+    class MyHolder(val binding: ItemDragLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(data: DragModel) {
             binding.model = data
         }
+    }
+
+    fun addItem(newList: List<DragModel>) {
+        list.clear()
+        list.addAll(newList)
+        notifyDataSetChanged()
     }
 
 

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "872672558919",
+    "project_id": "dragdrop-d4dc6",
+    "storage_bucket": "dragdrop-d4dc6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872672558919:android:a8f7e48f61125ce34e1662",
+        "android_client_info": {
+          "package_name": "com.dragdrop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872672558919-320se7biq6sjdqgsna70oealioih300q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dragdrop",
+            "certificate_hash": "4e7488983f2348bf2e83fdbd90e3a1b65e28024e"
+          }
+        },
+        {
+          "client_id": "872672558919-6st90bcofnom9chf0tfbg0p339i47icp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdp1mrKUskceYYbymZMo3s9YhOMKennzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872672558919-6st90bcofnom9chf0tfbg0p339i47icp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

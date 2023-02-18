@@ -1,5 +1,6 @@
 package com.dragdrop.adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
@@ -10,12 +11,12 @@ import com.dragdrop.models.HomeModel
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ItemHolder>() {
     var list = arrayListOf<HomeModel>(
-        HomeModel(categoryName = "Animal", categoryIcon = R.drawable.lion),
-        HomeModel(categoryName = "Fruit", categoryIcon = R.drawable.fruit),
-        HomeModel(categoryName = "Insect", categoryIcon = R.drawable.insect),
-        HomeModel(categoryName = "Flower", categoryIcon = R.drawable.flower),
+        HomeModel(categoryName = "Animals", categoryIcon = R.drawable.lion),
+        HomeModel(categoryName = "Fruits", categoryIcon = R.drawable.fruit),
+        HomeModel(categoryName = "Insects", categoryIcon = R.drawable.insect),
+        HomeModel(categoryName = "Flowers", categoryIcon = R.drawable.flower),
         HomeModel(categoryName = "Birds", categoryIcon = R.drawable.bird),
-        HomeModel(categoryName = "Body part", categoryIcon = R.drawable.body)
+//        HomeModel(categoryName = "Body part", categoryIcon = R.drawable.body)
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ItemHolder(
@@ -26,7 +27,10 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ItemHolder>() {
         holder.bind(list[position])
 
         holder.binding.mcvCategory.setOnClickListener {
-            holder.binding.mcvCategory.findNavController().navigate(R.id.homeToDragDrop)
+            holder.binding.mcvCategory.findNavController()
+                .navigate(R.id.homeToDragDrop, Bundle().apply {
+                    putString("type", list[position].categoryName)
+                })
         }
     }
 

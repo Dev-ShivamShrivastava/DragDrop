@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="model"
+            type="com.dragdrop.views.fragment.dragdrop.DragDropVM" />
+
 
     </data>
 
@@ -13,38 +17,39 @@
         android:layout_height="match_parent"
         android:tag="parentDrag"
         android:id="@+id/clDragDrop"
-        tools:context=".views.fragment.DragDropFragment">
+        tools:context=".views.fragment.dragdrop.DragDropFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:id="@+id/clToolbar"
             android:elevation="10dp"
-            android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/rvDrop"
             app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_drawer"
+                android:src="@drawable/ic_back"
                 android:layout_marginStart="16dp"
+                android:onClick="@{model::onClick}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:id="@+id/ivDrawer"/>
+                android:id="@+id/ivBack"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Home"
+                android:text="@{model.type}"
                 android:id="@+id/tvHome"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/ivDrawer"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -59,13 +64,27 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             tools:listitem="@layout/item_drop_layout"
-            app:layout_constraintBottom_toTopOf="@+id/rvDrag"
-            android:layout_marginBottom="10dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvDragDrop"
             app:layout_constraintTop_toBottomOf="@+id/clToolbar"
             app:spanCount="2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:id="@+id/tvDragDrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="15dp"
+            android:text="Drag Drop"
+            app:layout_constraintTop_toBottomOf="@+id/rvDrop"
+            app:layout_constraintBottom_toTopOf="@+id/rvDrag"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -77,6 +96,7 @@
             android:layout_marginStart="6dp"
             tools:listitem="@layout/item_drag_layout"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/tvDragDrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

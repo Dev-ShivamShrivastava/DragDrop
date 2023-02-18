@@ -23,14 +23,9 @@ class DragListener(val returnCall: () -> Unit) : OnDragListener {
                 val rvDrop = v.rootView.findViewById<View>(R.id.rvDrop) as RecyclerView
                 val rvDrag = v.rootView.findViewById<View>(R.id.rvDrag) as RecyclerView
                 val owner = rvDrop.parent as ViewGroup
-                val dropView = rvDrop.findChildViewUnder(event.x,event.y)
+                val dropView = rvDrop.findChildViewUnder(event.x,event.y-300)
                 val dropAdapter = rvDrop.adapter as DropAdapter
                 val dragAdapter = rvDrag.adapter as DragAdapter
-//                Log.v("tag-->x","${event.x.toInt().toString()}")
-//                Log.v("tag-->y","${event.y.toInt().toString()}")
-////                val view = findViewAt(owner, event.x.toInt(), event.y.toInt())
-//                Log.v("tag-->dragView",dragView.tag.toString())
-//                Log.v("tag-->view",view?.tag.toString())
                 if (dropView != null) {
                     if (dragView.tag.toString().equals(dropView.tag.toString(), true)){
                        val dragPosition = dragAdapter.list.indexOfFirst {
@@ -76,7 +71,6 @@ class DragListener(val returnCall: () -> Unit) : OnDragListener {
     private fun findViewAt(viewGroup: ViewGroup, x: Int, y: Int): View? {
         for (i in 0 until viewGroup.childCount) {
             val child = viewGroup.getChildAt(i)
-            Log.v("tagID-->","${child.getResources().getResourceName(child.getId())}")
             if (child is ViewGroup) {
                 val foundView = findViewAt(child, x, y)
                 if (foundView != null && foundView.isShown) {

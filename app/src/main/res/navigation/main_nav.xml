@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.dragdrop.views.fragment.HomeFragment"
+        android:name="com.dragdrop.views.fragment.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/dragDropFragment"
         tools:layout="@layout/fragment_drag_drop"
-        android:name="com.dragdrop.views.fragment.DragDropFragment"
+        android:name="com.dragdrop.views.fragment.dragdrop.DragDropFragment"
         android:label="DragDropFragment" />
 
 

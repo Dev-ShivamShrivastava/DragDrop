@@ -18,6 +18,7 @@
             android:layout_height="?attr/actionBarSize"
             android:id="@+id/clToolbar"
             android:elevation="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/fragmentMain"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -35,7 +36,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Home"
+                android:text="Drag Drop"
                 android:id="@+id/tvHome"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
