@@ -2,8 +2,7 @@ package com.dragdrop.utils
 
 import android.content.Context
 import android.graphics.Rect
-import android.media.MediaPlayer
-import android.util.Log
+import android.speech.tts.TextToSpeech
 import android.view.DragEvent
 import android.view.View
 import android.view.View.OnDragListener
@@ -13,6 +12,7 @@ import com.dragdrop.R
 import com.dragdrop.adapters.DragAdapter
 import com.dragdrop.adapters.DropAdapter
 import com.google.android.material.card.MaterialCardView
+import java.util.*
 
 
 class DragListener(val returnCall: () -> Unit) : OnDragListener {
@@ -26,6 +26,7 @@ class DragListener(val returnCall: () -> Unit) : OnDragListener {
                 val dropView = rvDrop.findChildViewUnder(event.x,event.y-300)
                 val dropAdapter = rvDrop.adapter as DropAdapter
                 val dragAdapter = rvDrag.adapter as DragAdapter
+
                 if (dropView != null) {
                     if (dragView.tag.toString().equals(dropView.tag.toString(), true)){
                        val dragPosition = dragAdapter.list.indexOfFirst {
@@ -41,8 +42,8 @@ class DragListener(val returnCall: () -> Unit) : OnDragListener {
                                this.image = dragData.image
                                this.isDrop=true
                            }
-                            dropView.context.playName(dragData.typeName)
-                            dropAdapter.notifyDataSetChanged()
+                            dropView.context.playName(dragData.name?:"")
+                            dropAdapter.notifyItemChanged(dropPosition)
                             dragAdapter.list.removeAt(dragPosition)
                             dragAdapter.notifyDataSetChanged()
                         }
@@ -60,12 +61,28 @@ class DragListener(val returnCall: () -> Unit) : OnDragListener {
         return true
     }
 
-    private fun Context.playName(raw:Int=R.raw.wrong, isPlay:Boolean=true){
+    private fun Context.playName(speech:String="wrong", isPlay:Boolean=true){
         if (isPlay){
-            val mp = MediaPlayer.create(this,raw)
-            mp.start()
+        var textToSpeech: TextToSpeech?=null
+        textToSpeech = TextToSpeech(
+            this
+        ) { status ->
+            if (status != TextToSpeech.ERROR) {
+                textToSpeech?.apply {
+                    language = Locale.forLanguageTag("hi")
+                    speak(speech, TextToSpeech.QUEUE_FLUSH, null,"");
+                }
+            }
+        }
         }
     }
+
+//    private fun Context.playName(raw:Int=R.raw.wrong, isPlay:Boolean=true){
+//        if (isPlay){
+//            val mp = MediaPlayer.create(this,raw)
+//            mp.start()
+//        }
+//    }
 
 
     private fun findViewAt(viewGroup: ViewGroup, x: Int, y: Int): View? {

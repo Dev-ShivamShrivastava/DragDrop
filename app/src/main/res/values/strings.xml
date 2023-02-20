@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">DragDrop</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Drag Drop</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

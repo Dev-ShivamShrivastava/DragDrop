@@ -2,19 +2,18 @@ package com.dragdrop.adapters
 
 import android.content.ClipData
 import android.content.ClipDescription
-import android.media.MediaPlayer
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dragdrop.R
 import com.dragdrop.databinding.ItemDragLayoutBinding
+import com.dragdrop.interfaces.GenericInterface
 import com.dragdrop.interfaces.OnCallBackListener
 import com.dragdrop.models.DragModel
 import com.dragdrop.utils.DragListener
 
-class DragAdapter(val onCallBackListener: OnCallBackListener) :
+class DragAdapter(private val onCallBackListener: OnCallBackListener) :
     RecyclerView.Adapter<DragAdapter.MyHolder>() {
     var list = arrayListOf<DragModel>()
 

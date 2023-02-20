@@ -1,4 +1,4 @@
-package com.dragdrop.views.fragment.home
+package com.dragdrop.views.fragment.settings
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,17 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.dragdrop.R
-import com.dragdrop.adapters.HomeAdapter
-import com.dragdrop.databinding.FragmentHomeBinding
-import com.dragdrop.views.activities.MainActivity
+import com.dragdrop.databinding.FragmentSettingsBinding
 
-class HomeFragment : Fragment() {
 
-    private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater).apply {
+class SettingsFragment : Fragment() {
+
+    private val binding by lazy { FragmentSettingsBinding.inflate(layoutInflater).apply {
         model = viewModel
     } }
-    private val viewModel:HomeVM by viewModels()
-    private val adapter by lazy { HomeAdapter() }
+    private val viewModel:SettingsVM by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,7 +27,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.rvCategory.adapter = adapter
+
     }
 
 

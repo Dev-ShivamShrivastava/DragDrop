@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -13,12 +13,44 @@
         <action
             android:id="@+id/homeToDragDrop"
             app:destination="@id/dragDropFragment" />
+        <action
+            android:id="@+id/homeToSetting"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/dragDropFragment"
         tools:layout="@layout/fragment_drag_drop"
         android:name="com.dragdrop.views.fragment.dragdrop.DragDropFragment"
-        android:label="DragDropFragment" />
+        android:label="DragDropFragment" >
+        <action
+            android:id="@+id/dragDropToSetting"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        tools:layout="@layout/fragment_settings"
+        android:name="com.dragdrop.views.fragment.settings.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/settingToContactUs"
+            app:destination="@id/contactUsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        tools:layout="@layout/fragment_splash"
+        android:name="com.dragdrop.views.fragment.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/splashToHome"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactUsFragment"
+        tools:layout="@layout/fragment_contact_us"
+        android:name="com.dragdrop.views.fragment.contactus.ContactUsFragment"
+        android:label="ContactUsFragment" />
 
 
 </navigation>

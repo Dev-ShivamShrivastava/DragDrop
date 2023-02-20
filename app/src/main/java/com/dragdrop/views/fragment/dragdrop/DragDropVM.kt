@@ -13,6 +13,7 @@ class DragDropVM:ViewModel() {
     fun onClick(view: View){
         when(view.id){
             R.id.ivBack -> view.findNavController().navigateUp()
+            R.id.ivSetting -> view.findNavController().navigate(R.id.dragDropToSetting)
         }
 
     }
