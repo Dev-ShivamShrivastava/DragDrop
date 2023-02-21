@@ -53,7 +53,7 @@ class DragDropFragment : Fragment(), OnCallBackListener {
                         typeName = R.raw.elephant
                     ),
                     DragModel(name = "Horse", R.drawable.horse, typeName = R.raw.horse),
-                    DragModel(name = "Lion", R.drawable.lion, typeName = R.raw.lion),
+                    DragModel(name = "Lion", R.drawable.lion, typeName = R.raw.animals),
                     DragModel(name = "Tiger", R.drawable.tiger, typeName = R.raw.tiger),
                     DragModel(name = "Monkey", R.drawable.monkey, typeName = R.raw.monkey),
                     DragModel(name = "Fox", R.drawable.fox, typeName = R.raw.fox),
