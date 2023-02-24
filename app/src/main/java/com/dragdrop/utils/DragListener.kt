@@ -61,21 +61,7 @@ class DragListener(val returnCall: () -> Unit) : OnDragListener {
         return true
     }
 
-    private fun Context.playName(speech:String="wrong", isPlay:Boolean=true){
-        if (isPlay){
-        var textToSpeech: TextToSpeech?=null
-        textToSpeech = TextToSpeech(
-            this
-        ) { status ->
-            if (status != TextToSpeech.ERROR) {
-                textToSpeech?.apply {
-                    language = Locale.forLanguageTag("hi")
-                    speak(speech, TextToSpeech.QUEUE_FLUSH, null,"");
-                }
-            }
-        }
-        }
-    }
+
 
 //    private fun Context.playName(raw:Int=R.raw.wrong, isPlay:Boolean=true){
 //        if (isPlay){

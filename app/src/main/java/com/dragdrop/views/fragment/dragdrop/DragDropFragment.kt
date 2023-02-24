@@ -13,6 +13,7 @@ import com.dragdrop.databinding.FragmentDragDropBinding
 import com.dragdrop.interfaces.OnCallBackListener
 import com.dragdrop.models.DragModel
 import com.dragdrop.models.DropModel
+import com.dragdrop.utils.playName
 
 class DragDropFragment : Fragment(), OnCallBackListener {
 
@@ -40,6 +41,7 @@ class DragDropFragment : Fragment(), OnCallBackListener {
         binding.rvDrop.adapter = dropAdapter
         binding.rvDrag.adapter = dragAdapter
         viewModel.type.set(arguments?.getString("type"))
+        requireContext().playName(viewModel.type.get()?:"")
         checkType()
     }
 

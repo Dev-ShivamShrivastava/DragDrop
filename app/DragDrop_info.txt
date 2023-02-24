@@ -1,0 +1,6 @@
+Key store path:- keystore.jks
+
+password :- 123456
+
+key Alias:- key0
+password:- 123456
