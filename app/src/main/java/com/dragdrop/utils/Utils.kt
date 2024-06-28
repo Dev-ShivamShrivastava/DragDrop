@@ -22,5 +22,8 @@ fun Context.playName(speech:String="wrong", isPlay:Boolean=true){
             }
         }
     }
+    fun detail (){
+        print("detail")
+    }
 }
 
