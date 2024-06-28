@@ -10,5 +10,7 @@ class AppController:Application() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
-
+fun dummy(){
+    print("application class")
+}
 }
