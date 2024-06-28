@@ -26,4 +26,5 @@ fun Context.playName(speech:String="wrong", isPlay:Boolean=true){
 
 fun learn(){
     print("Git learning")
+    print("Git learning")
 }
