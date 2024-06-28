@@ -8,6 +8,7 @@ class AppController:Application() {
     override fun onCreate() {
         super.onCreate()
         Log.d("TAG", "onCreate: ")
+        Log.d("TAG", "onCreate: ")
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
