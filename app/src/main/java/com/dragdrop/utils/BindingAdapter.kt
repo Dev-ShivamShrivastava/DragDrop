@@ -1,7 +1,6 @@
 package com.dragdrop.utils
 
 import android.widget.ImageView
-import com.airbnb.lottie.LottieAnimationView
 
 object BindingAdapter {
 
@@ -11,9 +10,9 @@ object BindingAdapter {
         view.setImageResource(drawable)
     }
 
-    @androidx.databinding.BindingAdapter("setLottie", requireAll = false)
-    @JvmStatic
-    fun setLotties(view: LottieAnimationView, raw: Int) {
-        view.setAnimation(raw)
-    }
+//    @androidx.databinding.BindingAdapter("setLottie", requireAll = false)
+//    @JvmStatic
+//    fun setLotties(view: LottieAnimationView, raw: Int) {
+//        view.setAnimation(raw)
+//    }
 }

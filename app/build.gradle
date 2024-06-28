@@ -8,14 +8,14 @@ plugins {
 
 android {
     namespace 'com.dragdrop'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.dragdrop"
         minSdk 21
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        targetSdk 34
+        versionCode 6
+        versionName "1.0.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -52,7 +52,6 @@ dependencies {
     // in-app update
     implementation 'com.google.android.play:core-ktx:1.8.1'
 
-
     //Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
@@ -62,7 +61,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
-    //lottie
-    implementation 'com.airbnb.android:lottie:3.6.1'
 
 }

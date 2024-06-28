@@ -11,11 +11,11 @@ import com.dragdrop.models.HomeModel
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ItemHolder>() {
     var list = arrayListOf<HomeModel>(
-        HomeModel(categoryName = "Animals", categoryIcon = R.raw.animals),
-        HomeModel(categoryName = "Fruits", categoryIcon = R.raw.fruits),
-        HomeModel(categoryName = "Insects", categoryIcon = R.raw.insects),
-        HomeModel(categoryName = "Flowers", categoryIcon = R.raw.flowers),
-        HomeModel(categoryName = "Birds", categoryIcon = R.raw.birds),
+        HomeModel(categoryName = "Animals", categoryIcon = R.drawable.lion),
+        HomeModel(categoryName = "Fruits", categoryIcon = R.drawable.fruit),
+        HomeModel(categoryName = "Insects", categoryIcon = R.drawable.insect),
+        HomeModel(categoryName = "Flowers", categoryIcon = R.drawable.flower),
+        HomeModel(categoryName = "Birds", categoryIcon = R.drawable.bird),
 //        HomeModel(categoryName = "Body part", categoryIcon = R.drawable.body)
     )
 

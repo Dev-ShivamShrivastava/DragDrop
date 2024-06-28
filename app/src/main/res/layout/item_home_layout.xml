@@ -22,18 +22,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.airbnb.lottie.LottieAnimationView
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                app:lottie_autoPlay="true"
                 android:id="@+id/ivCategory"
-                app:lottie_cacheComposition="true"
-                app:lottie_loop="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                setLottie="@{model.categoryIcon}"
-                app:lottie_speed="0.5" />
+                setDrawable="@{model.categoryIcon}"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
